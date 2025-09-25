@@ -9,9 +9,10 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       leading:Icon(
         Icons.tiktok,
-        size: 20,
+        size: 22,
         color: Colors.orange,
       ),
       title: Text(
@@ -19,7 +20,7 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
         style: GoogleFonts.roboto(
           color: Colors.orange,
           fontWeight: FontWeight.bold,
-          fontSize: 18
+          fontSize: 22
         ),
       ),
     titleSpacing: -10,
@@ -68,16 +69,15 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
             side: BorderSide(
               width: 0.5,
               color: Colors.grey
-            )
+             )
+            ),
           ),
-        ),
-      )
-    ],
-    bottomOpacity: 1,
+        )
+      ],
     );
   }
   
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => throw UnimplementedError();
+  Size get preferredSize => const Size.fromHeight(60);
 }
