@@ -23,3 +23,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/beef-tacos.jpg
+    - assets/images/chocolate-cookies.jpg
+    - assets/images/greek-salad.jpg
+    - assets/images/images.jpeg
+    - assets/images/margherita-pizza.jpg
+    - assets/images/pancakes.jpg
+    - assets/images/pasta-carbonara.jpg
+    - assets/images/veggie-stir-fry.jpg
+
+

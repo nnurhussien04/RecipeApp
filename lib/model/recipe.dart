@@ -7,7 +7,8 @@ class Recipe {
       required this.time,
       required this.servings,
       required this.ingredients,
-      required this.steps
+      required this.steps,
+      required this.image
     }
   );
 
@@ -18,5 +19,6 @@ class Recipe {
   final String servings;
   final List<String> ingredients;
   final List<String> steps;
+  final String image;
 
 }

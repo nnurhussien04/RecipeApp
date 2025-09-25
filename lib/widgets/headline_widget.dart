@@ -21,12 +21,13 @@ class HeadlineWidget extends StatelessWidget {
               fontWeight: FontWeight.bold
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Text(
             "${recipes.length} recipes avaliable",
             style: GoogleFonts.roboto(
               fontSize: 15,
-              color: Colors.grey
+              color: Colors.grey,
+              fontWeight: FontWeight.w600
               ),
           )
         ]

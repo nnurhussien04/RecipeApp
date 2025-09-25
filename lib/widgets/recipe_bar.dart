@@ -4,7 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
   const RecipeBar({
     super.key,
+    //required this.switchScreen
   });
+
+  //final void Function() switchScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,8 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
       Container(
         margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
         child: TextButton.icon(
-          onPressed: (){}, 
+          onPressed: (){
+          }, 
           icon: Icon(
             Icons.home_outlined
           ),
@@ -39,10 +43,10 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
               fontWeight: FontWeight.bold
             ),
           ),
-          style: OutlinedButton.styleFrom(
+          style: TextButton.styleFrom(
             foregroundColor: Colors.white,
             backgroundColor: Colors.orange,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10))
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10) )
           
           ),
         ),
@@ -65,11 +69,11 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
           style: TextButton.styleFrom(
             backgroundColor: Colors.white,
             foregroundColor: Colors.black,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             side: BorderSide(
               width: 0.5,
               color: Colors.grey
-             )
+                ) 
             ),
           ),
         )

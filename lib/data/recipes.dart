@@ -5,7 +5,7 @@ final List<Recipe> recipes = [
     dish: "Spaghetti Carbonara",
     description: "A creamy Italian pasta with pancetta and Parmesan cheese.",
     difficulty: "Medium",
-    time: "25 mins",
+    time: "25m",
     servings: "2",
     ingredients: [
       "200g spaghetti",
@@ -22,12 +22,13 @@ final List<Recipe> recipes = [
       "Combine pasta with pancetta and egg mixture.",
       "Serve with extra Parmesan and black pepper."
     ],
+    image: "assets/images/pasta-carbonara.jpg"
   ),
   Recipe(
     dish: "Grilled Chicken Salad",
     description: "Light and healthy salad with grilled chicken and fresh veggies.",
     difficulty: "Easy",
-    time: "20 mins",
+    time: "20m",
     servings: "2",
     ingredients: [
       "200g chicken breast",
@@ -45,12 +46,13 @@ final List<Recipe> recipes = [
       "Drizzle with olive oil and lemon juice.",
       "Season with salt and pepper to taste."
     ],
+    image: "assets/images/greek-salad.jpg"
   ),
   Recipe(
     dish: "Beef Tacos",
     description: "Classic Mexican beef tacos with flavorful toppings.",
     difficulty: "Easy",
-    time: "30 mins",
+    time: "30m",
     servings: "4",
     ingredients: [
       "400g ground beef",
@@ -67,12 +69,13 @@ final List<Recipe> recipes = [
       "Fill taco shells with beef and toppings.",
       "Serve with salsa or sour cream."
     ],
+    image: "assets/images/beef-tacos.jpg"
   ),
   Recipe(
     dish: "Vegetable Stir-Fry",
     description: "Quick and easy stir-fry with a mix of fresh vegetables.",
     difficulty: "Easy",
-    time: "15 mins",
+    time: "15m",
     servings: "3",
     ingredients: [
       "Broccoli",
@@ -90,12 +93,13 @@ final List<Recipe> recipes = [
       "Add soy sauce and stir well.",
       "Serve hot with rice or noodles."
     ],
+    image: "assets/images/veggie-stir-fry.jpg"
   ),
   Recipe(
     dish: "Cheeseburger",
     description: "Juicy beef burger with cheese, lettuce, and tomato.",
     difficulty: "Easy",
-    time: "25 mins",
+    time: "25m",
     servings: "2",
     ingredients: [
       "2 beef patties",
@@ -113,12 +117,13 @@ final List<Recipe> recipes = [
       "Assemble burgers with cheese, lettuce, tomato, and condiments.",
       "Serve with fries or salad."
     ],
+    image: "assets/images/images.jpeg"
   ),
   Recipe(
     dish: "Pancakes",
     description: "Fluffy pancakes perfect for a hearty breakfast.",
     difficulty: "Easy",
-    time: "20 mins",
+    time: "20m",
     servings: "4",
     ingredients: [
       "1 cup flour",
@@ -137,12 +142,13 @@ final List<Recipe> recipes = [
       "Flip and cook the other side.",
       "Serve with butter and maple syrup."
     ],
+    image: "assets/images/pancakes.jpg"
   ),
   Recipe(
     dish: "Margherita Pizza",
     description: "Classic pizza topped with fresh mozzarella and basil.",
     difficulty: "Medium",
-    time: "40 mins",
+    time: "40m",
     servings: "4",
     ingredients: [
       "Pizza dough",
@@ -159,12 +165,13 @@ final List<Recipe> recipes = [
       "Drizzle with olive oil and sprinkle salt.",
       "Bake for 10-15 minutes until golden and bubbly."
     ],
+    image: "assets/images/margherita-pizza.jpg"
   ),
   Recipe(
     dish: "Chocolate Chip Cookies",
     description: "Soft and chewy cookies with chocolate chips.",
     difficulty: "Easy",
-    time: "30 mins",
+    time: "30m",
     servings: "12",
     ingredients: [
       "1 cup flour",
@@ -184,5 +191,6 @@ final List<Recipe> recipes = [
       "Scoop dough onto a baking sheet.",
       "Bake for 10-12 minutes until golden."
     ],
+    image: "assets/images/chocolate-cookies.jpg"
   ),
 ];
