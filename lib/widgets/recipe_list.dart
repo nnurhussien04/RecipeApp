@@ -3,13 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:recipe_app/model/recipe.dart';
 import 'package:recipe_app/screens/recipe_screen.dart';
 
+
 class RecipesList extends StatefulWidget {
-  const RecipesList(this.data,this.switchScreen,{
-    super.key,
-  });
+  RecipesList(this.data,this.switchScreen,this.favourites,this.clicked,{super.key});
   
-  final Recipe data;
-  final void Function(Recipe recipe) switchScreen;
+  Recipe data;
+  void Function(Recipe recipe) switchScreen;
+  List<Recipe> favourites;
+  bool clicked;
 
   @override
   State<RecipesList> createState() => _RecipesListState();
@@ -17,6 +18,7 @@ class RecipesList extends StatefulWidget {
 
 
 Widget? activeScreen;
+
 
 class _RecipesListState extends State<RecipesList> {
   @override
@@ -46,12 +48,22 @@ class _RecipesListState extends State<RecipesList> {
                       top: 10,
                       right: 10,
                       child: IconButton(
-                        onPressed: (){}, 
+                        onPressed: (){
+                          setState(() {
+                            widget.clicked = !widget.clicked;
+                            print(widget.clicked);
+                            if(widget.clicked){
+                              !widget.favourites.contains(widget.data) ? widget.favourites.add(widget.data) : null;
+                            } else{
+                              widget.favourites.contains(widget.data) ? widget.favourites.remove(widget.data) : null;
+                            }
+                          });
+                        }, 
                         icon: Icon(
                           Icons.favorite_border_outlined
                         ),
                         style: IconButton.styleFrom(
-                          backgroundColor: Colors.white
+                          backgroundColor: widget.clicked ?Colors.orange : Colors.white
                         ),
                       )
                     ),
@@ -72,7 +84,8 @@ class _RecipesListState extends State<RecipesList> {
                             fontWeight: FontWeight.bold
                           ),
                         ),
-                      ))
+                      )
+                    )
                 ]
               ),
               Padding(

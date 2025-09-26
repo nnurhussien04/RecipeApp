@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/screens/favourite_page.dart';
 import 'package:recipe_app/screens/recipe_screen.dart';
 import 'package:recipe_app/widgets/back_bar.dart';
 import 'package:recipe_app/widgets/recipe_bar.dart';
@@ -18,6 +19,7 @@ class _HomepageState extends State<Homepage> {
 
   var activeScreen;
   var appBar;
+  List<Recipe> userFavourites = [];
   
 
   void switchScreen(Recipe recipe){
@@ -34,6 +36,22 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
+  void switchFavouriteScreen(){
+    setState(() {
+      activeScreen = FavouritePage(favourites: userFavourites,switchScreen: switchScreen);
+    });
+  }
+
+  void addFavourites(Recipe recipe){
+    setState(() {
+      userFavourites.add(recipe);
+    });
+  }
+
+  void removeFavourties(Recipe recipe){
+    userFavourites.contains(recipe) ? userFavourites.remove(recipe) : print('Error');
+  }
+
   
 
 
@@ -45,7 +63,10 @@ class _HomepageState extends State<Homepage> {
       title: "Recipe App",
       home: Scaffold(
         extendBodyBehindAppBar: false,
-        appBar: appBar ?? RecipeBar(),
+        appBar: appBar ?? RecipeBar(
+          switchFavouriteScreen: switchFavouriteScreen,
+          switchHomeScreen: homepage,
+          ),
         body: activeScreen ?? 
         Column(
           children: [
@@ -57,7 +78,8 @@ class _HomepageState extends State<Homepage> {
                         HeadlineWidget(),
                         ...recipes.map(
                             (data){
-                              return RecipesList(data,switchScreen);
+                              bool clicked = userFavourites.contains(data);
+                              return RecipesList(data,switchScreen,userFavourites,clicked);
                             } 
                           )
                         ],

@@ -1,14 +1,28 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
+class RecipeBar extends StatefulWidget implements PreferredSizeWidget {
   const RecipeBar({
     super.key,
-    //required this.switchScreen
+    required this.switchFavouriteScreen,
+    required this.switchHomeScreen
   });
 
-  //final void Function() switchScreen;
+  final void Function() switchFavouriteScreen;
+  final void Function() switchHomeScreen;
 
+  @override
+  State<RecipeBar> createState() => _RecipeBarState();
+  
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => const Size.fromHeight(60);
+}
+
+class _RecipeBarState extends State<RecipeBar> {
+  bool clicked = true;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -32,6 +46,10 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
         margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
         child: TextButton.icon(
           onPressed: (){
+            setState(() {
+              clicked = true;
+            });
+            widget.switchHomeScreen();
           }, 
           icon: Icon(
             Icons.home_outlined
@@ -44,10 +62,13 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           style: TextButton.styleFrom(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.orange,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10) )
-          
+            foregroundColor: clicked ? Colors.white : Colors.black,
+            backgroundColor: clicked ? Colors.orange : Colors.white,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            side: clicked ? null : BorderSide(
+              width: 0.5,
+              color: Colors.grey
+              ) ,
           ),
         ),
       ),
@@ -55,7 +76,12 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
       Container(
         margin: EdgeInsets.fromLTRB(0, 0, 5, 0),
         child: TextButton.icon(
-          onPressed: (){}, 
+          onPressed: (){
+            setState(() {
+              clicked = false;
+            });
+            widget.switchFavouriteScreen();
+            }, 
           icon: Icon(
             Icons.favorite_border,
             ),
@@ -67,21 +93,18 @@ class RecipeBar extends StatelessWidget implements PreferredSizeWidget {
             )
           ),
           style: TextButton.styleFrom(
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.black,
+            backgroundColor: clicked ? Colors.white : Colors.orange,
+            foregroundColor: clicked ? Colors.black : Colors.white,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            side: BorderSide(
+            side: !clicked ? null : BorderSide(
               width: 0.5,
               color: Colors.grey
-                ) 
+              ) 
             ),
           ),
         )
       ],
     );
   }
-  
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(60);
+
 }

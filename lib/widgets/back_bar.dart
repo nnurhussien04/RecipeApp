@@ -20,20 +20,23 @@ class _BackBarState extends State<BackBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: TextButton.icon(
-        onPressed: widget.homepage, 
-        icon: Icon(Icons.arrow_back),
-        label: Text(
-          "Back To Recipes",
-          style: GoogleFonts.roboto(
-            fontWeight: FontWeight.bold
+      title: Align(
+        alignment: Alignment.centerLeft,
+        child: TextButton.icon(
+          onPressed: widget.homepage, 
+          icon: Icon(Icons.arrow_back),
+          label: Text(
+            "Back To Recipes",
+            style: GoogleFonts.roboto(
+              fontWeight: FontWeight.bold
+              ),
             ),
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.black,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10)
+            )
           ),
-        style: TextButton.styleFrom(
-          foregroundColor: Colors.black,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10)
-          )
         ),
       ),
       actions: [

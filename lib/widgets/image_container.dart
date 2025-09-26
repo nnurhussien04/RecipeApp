@@ -20,13 +20,13 @@ class ImageContainer extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.all(10),
       child: Stack(
-        alignment: Alignment.center,
+        alignment: Alignment.bottomCenter,
         children: <Widget>[
           Image.asset(
             data.image,
           ),
           Container(
-            width: double.infinity,
+            //width: double.infinity,
             margin: EdgeInsets.all(20),
             //height: 100,
             child: Column(
@@ -47,6 +47,86 @@ class ImageContainer extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 14),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      //color: Colors.orange,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(80),
+                        color: Color.fromARGB(90, 255, 255, 255)
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.av_timer_rounded,
+                            color: Colors.white,
+                            size: 15,
+                            ),
+                          SizedBox(width: 5,),
+                          Text(
+                            data.time,
+                            style: GoogleFonts.roboto(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 15),
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      //color: Colors.orange,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(80),
+                        color: Color.fromARGB(90, 255, 255, 255)
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.people,
+                            color: Colors.white,
+                            size: 15,
+                            ),
+                          SizedBox(width: 5,),
+                          Text(
+                            "${data.servings} servings",
+                            style: GoogleFonts.roboto(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 15),
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      //color: Colors.orange,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(80),
+                        color: Color.fromARGB(90, 255, 255, 255)
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.tiktok,
+                            color: Colors.white,
+                            size: 15,
+                            ),
+                          SizedBox(width: 5,),
+                          Text(
+                            data.difficulty,
+                            style: GoogleFonts.roboto(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ]
+                )
               ],
             ),
           )
