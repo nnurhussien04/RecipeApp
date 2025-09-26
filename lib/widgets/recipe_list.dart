@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recipe_app/model/recipe.dart';
 import 'package:recipe_app/screens/recipe_screen.dart';
@@ -36,9 +36,44 @@ class _RecipesListState extends State<RecipesList> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                widget.data.image != null ? widget.data.image : "assets/images/beef-tacos.jpg",
-                width: double.infinity,
+              Stack(
+                children: [
+                    Image.asset(
+                      widget.data.image,
+                      width: double.infinity,
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 10,
+                      child: IconButton(
+                        onPressed: (){}, 
+                        icon: Icon(
+                          Icons.favorite_border_outlined
+                        ),
+                        style: IconButton.styleFrom(
+                          backgroundColor: Colors.white
+                        ),
+                      )
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      left: 10,
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        //color: Colors.orange,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(80),
+                          color: Colors.orange
+                        ),
+                        child: Text(
+                          widget.data.difficulty,
+                          style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ))
+                ]
               ),
               Padding(
                 padding: const EdgeInsets.all(12),

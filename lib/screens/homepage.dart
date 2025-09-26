@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/screens/recipe_screen.dart';
+import 'package:recipe_app/widgets/back_bar.dart';
 import 'package:recipe_app/widgets/recipe_bar.dart';
 import 'package:recipe_app/data/recipes.dart';
 import 'package:recipe_app/widgets/headline_widget.dart';
@@ -16,14 +17,24 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
 
   var activeScreen;
+  var appBar;
+  
+
   void switchScreen(Recipe recipe){
     setState(() {
+      appBar = BackBar(homepage);
       activeScreen = RecipeScreen(recipe);
     });
   }
 
-  
+  void homepage(){
+    setState(() {
+      appBar = null;
+      activeScreen = null;
+    });
+  }
 
+  
 
 
   
@@ -34,7 +45,7 @@ class _HomepageState extends State<Homepage> {
       title: "Recipe App",
       home: Scaffold(
         extendBodyBehindAppBar: false,
-        appBar: RecipeBar(),
+        appBar: appBar ?? RecipeBar(),
         body: activeScreen ?? 
         Column(
           children: [
